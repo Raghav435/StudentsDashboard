@@ -24,6 +24,7 @@ function myfunction(e){
 
     localStorage.setItem("students", JSON.stringify(data));
     console.log(s1);
+    window.location.reload();
 }
 
 function calculate(){
@@ -40,17 +41,17 @@ function calculate(){
         obj[data[i].batch]++;
     }
     console.log(obj);
-    data.map(function(e){
-        let div = document.createElement("div");
-        let batchs = document.createElement("p");
-        batchs.innerText = e.batch;
-        div.append(batchs);
 
-        // document.querySelector("#navbar").append(div);
-        console.log(data);
-    })
-   
-    console.log(obj);
-   
+    // let a =obj
+    // console.log(Object.value(a))
+
+    let container = document.getElementById("navbar");
+
+    for(key in obj){
+        let batch = document.createElement("div");
+        batch.innerText = `${key} - ${obj[key]}`
+
+        container.append(batch);
+    }
 }
 calculate();
